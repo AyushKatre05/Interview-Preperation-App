@@ -1,7 +1,4 @@
 import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
-import { json } from "stream/consumers";
-
-
 export const MockInterview = pgTable('mockInterview',{
     id:serial('id').primaryKey(),
     jsonMockResp:text('jsonMockResp').notNull(),
