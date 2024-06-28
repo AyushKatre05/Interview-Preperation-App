@@ -5,6 +5,8 @@ import { eq } from 'drizzle-orm';
 import React, { useEffect, useState } from 'react';
 import QuestionsSection from './(components)/QuestionsSection';
 import RecordAnsSection from './(components)/RecordAnsSection';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const StartInterview = ({ params }) => {
   const [interviewData, setInterviewData] = useState(null);
@@ -40,9 +42,16 @@ const StartInterview = ({ params }) => {
   }
 
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
+    <div>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-10'>
       <QuestionsSection activeQuestionIndex={activeQuestionIndex} mockInterviewQuestion={mockInterviewQuestion} />
-      <RecordAnsSection/>
+      <RecordAnsSection activeQuestionIndex={activeQuestionIndex} mockInterviewQuestion={mockInterviewQuestion} interviewData={interviewData}/>
+    </div>
+    <div className='flex justify-end gap-6'>
+    {activeQuestionIndex>0 && <Button onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)}>Previous Question</Button>}
+    {activeQuestionIndex!=mockInterviewQuestion?.length-1 && <Button onClick={()=>setActiveQuestionIndex(activeQuestionIndex+1)}>Next Question</Button>}
+    {activeQuestionIndex==mockInterviewQuestion?.length-1 &&  <Link href={'/dashboard/interview/'+interviewData?.mockId+'/feedback'}><Button className="bg-red-500 hover:bg-red-400">End Interview</Button></Link>}
+    </div>
     </div>
   );
 }
