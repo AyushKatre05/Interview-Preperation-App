@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { UserButton } from '@clerk/nextjs';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Header = () => {
   const [path, setPath] = useState('/dashboard');
@@ -20,7 +21,7 @@ const Header = () => {
     <header className="flex flex-col md:flex-row items-center justify-between p-4 bg-white shadow-md">
       <div className="flex items-center justify-between w-full md:w-auto">
         <div className="flex items-center">
-          <Image src="/logo.svg" alt="Logo" height={100} width={160} className="h-12 w-auto"/>
+          <Link href={'/'}><Image src="/logo.svg" alt="Logo" height={100} width={160} className="h-12 w-auto"/></Link>
         </div>
         <button
           className="md:hidden focus:outline-none"
@@ -58,19 +59,19 @@ const Header = () => {
             className={`cursor-pointer ${path === '/dashboard' ? 'font-bold border-b-2 border-primary text-primary' : 'text-gray-700 hover:text-primary'}`}
             onClick={() => navigateTo('/dashboard')}
           >
-            Dashboard
+            <Link href={'/dashboard'}>Dashboard</Link>
           </li>
           <li
             className={`cursor-pointer ${path === '/dashboard/questions' ? 'font-bold border-b-2 border-primary text-primary' : 'text-gray-700 hover:text-primary'}`}
             onClick={() => navigateTo('/dashboard/questions')}
           >
-            Questions
+            <Link href={'/dashboard/questions'}>Questions</Link>
           </li>
           <li
             className={`cursor-pointer ${path === '/dashboard/how-it-works' ? 'font-bold border-b-2 border-primary text-primary' : 'text-gray-700 hover:text-primary'}`}
             onClick={() => navigateTo('/dashboard/how-it-works')}
           >
-            How It Works?
+            <Link href={'/dashboard/how-it-works'}>How It Works?</Link>
           </li>
           <li className="mt-4 md:mt-0 flex items-center md:hidden">
             <UserButton />
