@@ -15,7 +15,7 @@ const Interview = ({ params }) => {
     useEffect(() => {
       console.log(params.interviewId);
       GetInterviewDetails();
-    }, []);
+    });
   
     const GetInterviewDetails = async () => {
       const result = await db

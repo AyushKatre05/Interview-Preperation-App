@@ -17,7 +17,7 @@ const Feedback = ({params}) => {
     const [feedbackList,setFeedbackList] = useState([])
     useEffect(()=>{
         GetFeedback();
-    },[])
+    })
     const router = useRouter();
     const GetFeedback =async()=>{
         const result = await db.select().from(UserAnswer).where(eq(UserAnswer.mockIdRef,params.interviewId)).orderBy(UserAnswer.id)

@@ -64,13 +64,13 @@ const Home = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white text-gray-800 p-6 rounded-lg shadow-md">
               <p className="text-lg italic">
-                "This app transformed my interview preparation. The personalized practice and expert feedback were invaluable."
+                This app transformed my interview preparation. The personalized practice and expert feedback were invaluable.
               </p>
               <p className="mt-4 font-bold">- Jane Doe</p>
             </div>
             <div className="bg-white text-gray-800 p-6 rounded-lg shadow-md">
               <p className="text-lg italic">
-                "I landed my dream job thanks to this app. The mock interviews helped me build confidence and perform well."
+                I landed my dream job thanks to this app. The mock interviews helped me build confidence and perform well.
               </p>
               <p className="mt-4 font-bold">- John Smith</p>
             </div>

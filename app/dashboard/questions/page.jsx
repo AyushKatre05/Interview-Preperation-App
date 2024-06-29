@@ -28,7 +28,7 @@ const Questions = () => {
           </p>
           <h2 className="text-2xl font-bold mb-2">Can I cancel my subscription?</h2>
           <p className="text-lg mb-4">
-            Yes, you can cancel your subscription at any time. If you're not satisfied, we're here to help.
+            Yes, you can cancel your subscription at any time. If you are not satisfied, we are here to help.
           </p>
         </div>
         <Button 

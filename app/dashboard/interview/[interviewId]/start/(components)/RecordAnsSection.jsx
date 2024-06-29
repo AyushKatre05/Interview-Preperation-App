@@ -41,7 +41,7 @@ const RecordAnsSection = ({
     if (!isRecording && userAnswer.length > 10) {
       UpdateUserAnswer();
     }
-  }, [userAnswer]);
+  });
 
   const UpdateUserAnswer = async () => {
     console.log(userAnswer);

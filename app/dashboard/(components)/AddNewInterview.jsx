@@ -83,7 +83,7 @@ const AddNewInterview = () => {
         </div>
         <div className='flex justify-end gap-5 '>
         <Button type="button" variant="destructive" onClick={()=>setOpenDialog(false)}>Cancel</Button>
-          <Button type="submit" disabled={loading} >{loading?<><LoaderCircle className="animate-spin"/>'Generating From AI'</>:'Start Interview'}</Button>
+          <Button type="submit" disabled={loading} >{loading?<><LoaderCircle className="animate-spin"/>Generating From AI</>:'Start Interview'}</Button>
         </div></form>
       </DialogDescription>
     </DialogHeader>

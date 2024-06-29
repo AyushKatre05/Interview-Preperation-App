@@ -32,7 +32,7 @@ const HowItWorks = () => {
           </p>
           <h2 className="text-2xl font-bold mb-2">Step 4: Ace Your Interview</h2>
           <p className="text-lg mb-4">
-            Use the insights and practice you've gained to confidently tackle your interviews and land your dream job.
+            Use the insights and practice you have gained to confidently tackle your interviews and land your dream job.
           </p>
         </div>
         <Button 

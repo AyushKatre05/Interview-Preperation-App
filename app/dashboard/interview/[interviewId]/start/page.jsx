@@ -14,7 +14,7 @@ const StartInterview = ({ params }) => {
   const [activeQuestionIndex,setActiveQuestionIndex] = useState(0)
   useEffect(() => {
     GetInterviewDetails();
-  }, []);
+  });
 
   const GetInterviewDetails = async () => {
     try {
