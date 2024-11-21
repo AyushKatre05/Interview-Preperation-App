@@ -1,53 +1,67 @@
-"use client"
+"use client";
 import { db } from '@/utils/db';
 import { UserAnswer } from '@/utils/schema';
 import { eq } from 'drizzle-orm';
-import React, { useEffect, useState } from 'react'
-import {
-    Collapsible,
-    CollapsibleContent,
-    CollapsibleTrigger,
-  } from "@/components/ui/collapsible"
-import { ChevronsUpDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
-  
 
-const Feedback = ({params}) => {
-    const [feedbackList,setFeedbackList] = useState([])
-    useEffect(()=>{
-        GetFeedback();
-    })
-    const router = useRouter();
-    const GetFeedback =async()=>{
-        const result = await db.select().from(UserAnswer).where(eq(UserAnswer.mockIdRef,params.interviewId)).orderBy(UserAnswer.id)
-        setFeedbackList(result)
-    }
+const Feedback = ({ params }) => {
+  const [feedbackList, setFeedbackList] = useState([]);
+  const router = useRouter();
+
+  useEffect(() => {
+    fetchFeedback();
+  }, []);
+
+  const fetchFeedback = async () => {
+    const result = await db
+      .select()
+      .from(UserAnswer)
+      .where(eq(UserAnswer.mockIdRef, params.interviewId))
+      .orderBy(UserAnswer.id);
+    setFeedbackList(result);
+    console.log("Params:", params.interviewId);
+    console.log(result);
+  };
+
   return (
-    <div className='p-10'>
-        <h2 className='text-3xl font-bold text-primary'>Your Feedback</h2>
-
-        {feedbackList?.length==0?<h2 className='font-bold text-xl text-gray-500'>No Interview Feedback</h2>:<>
-        <h2 className='text-2xl font-bold'>Your Overall interview rating: <strong></strong> </h2>
-        <h2 className='text-sm text-gray-500'>Find Below interview question with correct answer , Your answer and feedback for improvement</h2>
-        {feedbackList&&feedbackList.map((item,index)=>(
-            <Collapsible key={index} className='mt-7'>
-  <CollapsibleTrigger className='p-2 flex justify-between bg-secondary rounded-lg my-2 text-left gap-7 w-full'>{item.question}<ChevronsUpDown className='h-7 w-7'/></CollapsibleTrigger>
-  <CollapsibleContent>
-    <div className='flex flex-col gap-2'>
-        <h2 className='text-red-500 p-2 border rounded-lg'><strong>Rating:</strong>{item.rating}</h2>
-        <h2 className='p-2 text-red-900 border rounded-lg text-sm bg-red-50'><strong>Your Answer: </strong>{item.userAns}</h2>
-        <h2 className='p-2 text-green-900 border rounded-lg text-sm bg-red-50'><strong>Correct Answer: </strong>{item.correctAns}</h2>
-        <h2 className='p-2 text-blue-900 border rounded-lg text-sm bg-red-50'><strong>Feedback: </strong>{item.feedback}</h2>
+    <div className="p-6 bg-white dark:bg-gray-800 text-black dark:text-white">
+      <h2 className="text-2xl font-semibold mb-4">Your Feedback</h2>
+      {feedbackList.length === 0 ? (
+        <p className="text-gray-600 dark:text-gray-300">No interview feedback available.</p>
+      ) : (
+        <div className="space-y-6">
+          <p className="text-lg font-medium">Overall Interview Rating: <strong>-</strong></p>
+          <p className="text-sm text-gray-500 dark:text-gray-400">
+            Below are the interview questions, your answers, and feedback for improvement.
+          </p>
+          {feedbackList.map((item, index) => (
+            <div key={index} className="border rounded-lg p-4 space-y-2 bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600">
+              <p className="font-medium">{item.question}</p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <strong>Rating:</strong> {item.rating}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <strong>Your Answer:</strong> {item.userAns}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <strong>Correct Answer:</strong> {item.correctAns}
+              </p>
+              <p className="text-gray-700 dark:text-gray-300">
+                <strong>Feedback:</strong> {item.feedback}
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
+      <button
+        onClick={() => router.replace('/dashboard')}
+        className="mt-6 px-4 py-2 border border-black rounded hover:bg-gray-100 dark:hover:bg-gray-700 dark:border-gray-600"
+      >
+        Go Home
+      </button>
     </div>
-  </CollapsibleContent>
-</Collapsible>
-        ))}
-</>}
+  );
+};
 
-        <Button onClick={()=>router.replace('/dashboard')}>Go Home</Button>
-    </div>
-  )
-}
-
-export default Feedback
+export default Feedback;
