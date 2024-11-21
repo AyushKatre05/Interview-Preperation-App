@@ -29,7 +29,7 @@ const Interview = ({ params }) => {
 
   return (
     <div className="p-5 bg-white dark:bg-gray-900 text-black dark:text-white">
-      <h2 className="text-2xl font-bold mb-4">Let's Get Started</h2>
+      <h2 className="text-2xl font-bold mb-4">Lets Get Started</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
           <div className="p-4 border rounded bg-white dark:bg-gray-800">
@@ -42,7 +42,7 @@ const Interview = ({ params }) => {
               <Lightbulb /> <strong>Information</strong>
             </h2>
             <p className="text-sm mt-2 text-yellow-600 dark:text-yellow-800">
-              Enable your webcam and microphone to start the interview. There are 5 questions, and you'll receive a report based on your answers. Note: We do not record your video.
+              Enable your webcam and microphone to start the interview. There are 5 questions, and you will receive a report based on your answers. Note: We do not record your video.
             </p>
           </div>
         </div>
