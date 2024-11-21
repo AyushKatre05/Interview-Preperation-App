@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { chatSession } from '@/utils/AIModal'
-import { Flashlight, LoaderCircle } from 'lucide-react'
+import { LoaderCircle } from 'lucide-react'
 import { db } from '@/utils/db'
 import { MockInterview } from '@/utils/schema'
 import {v4 as uuidv4} from "uuid"
@@ -58,7 +58,7 @@ const AddNewInterview = () => {
   return (
     <div>
     <div onClick={()=>setOpenDialog(true)} className='p-10 border rounded-lg transition-all bg-green-200 cursor-pointer hover:scale-105 hover:shadow-md'>
-    <h2 className='text-lg text-center'>+Add New</h2>        
+    <h2 className='text-lg text-center dark:text-black'>+Add New</h2>        
     </div>
     <Dialog open={openDialog}>
   <DialogContent>
