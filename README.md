@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Innova: AI-Powered Interview Preparation Platform
+
+Innova is an innovative platform designed to help job seekers prepare for interviews using advanced AI technologies. It offers interactive practice sessions, personalized feedback, and curated resources to help users excel in their interviews. Whether you're preparing for a technical, behavioral, or situational interview, Innova is your personal coach to guide you every step of the way.
+
+## Features
+
+- **AI-Powered Mock Interviews**: Practice with real-time AI responses that simulate interview scenarios.
+- **Customizable Interview Topics**: Tailor the practice sessions to specific job roles and industries.
+- **Personalized Feedback**: Receive detailed feedback on your answers, body language, and tone.
+- **Resources & Tips**: Access a wide range of curated resources, such as resume tips, interview strategies, and common questions for various roles.
+- **Progress Tracking**: Track your improvement over time, identify areas for growth, and enhance your performance.
+- **Behavioral & Technical Simulations**: Get a well-rounded preparation experience with both technical and soft-skill interview simulations.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to start using Innova:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the repository**:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    git clone https://github.com/AyushKatre05/innova.git
+    cd innova
+    ```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+2. **Install dependencies**:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+    Make sure you have [Node.js](https://nodejs.org/) installed. Then, install the required packages:
 
-## Learn More
+    ```bash
+    npm install
+    ```
 
-To learn more about Next.js, take a look at the following resources:
+3. **Run the application**:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Start the development server by running:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    ```bash
+    npm run dev
+    ```
 
-## Deploy on Vercel
+    The application should now be running at [http://localhost:3000](http://localhost:3000).
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Starting a Mock Interview
+
+1. Launch the platform.
+2. Select the type of interview you’d like to simulate (e.g., behavioral, technical, or situational).
+3. Choose the job role or industry you're applying for.
+4. Start the interview session, and answer the AI's questions.
+5. Receive real-time feedback on your responses, tone, and body language.
+
+### Progress Tracker
+
+- Track your interview performance and progress over time.
+- View statistics such as rating, correct answer, and overall feedback.
+
+## Contributing
+
+We welcome contributions to Innova! If you'd like to improve the platform or add new features, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-name`).
+3. Commit your changes (`git commit -am 'Add new feature'`).
+4. Push to the branch (`git push origin feature-name`).
+5. Create a new pull request.
+
+## Technologies Used
+
+- **Frontend & Backend**: Next.js, Node.js
+- **AI Model**: Google Gemini (for mock interviews and feedback)
+- **Styling**: Tailwind CSS, ShadCN 
+- **Database**: PostgreSQL
+- **Deployment**: Vercel
+
+## License
+
+Innova is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+If you have any questions or suggestions, feel free to contact us at:
+
+- Email: ayushkatre1801@gmail.com
+
+---
+
+Thank you for using Innova! Good luck with your interview preparation!
