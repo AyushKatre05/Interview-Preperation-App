@@ -1,9 +1,8 @@
-// pages/index.tsx
 "use client";
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
+import ThemeToggleButton from './dashboard/(components)/ThemeToggleButton';
 
 const Home = () => {
   const router = useRouter();
@@ -13,80 +12,69 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-green-500 to-green-600 text-white flex flex-col items-center justify-center">
+    <div className="min-h-screen bg-white dark:bg-gray-900 text-black dark:text-white flex flex-col items-center justify-center">
       <Head>
-        <title>Interview Preparation App</title>
-        <meta name="description" content="Prepare for your interviews with ease" />
+        <title>Innova - AI Interview Preparation App</title>
+        <meta name="description" content="AI-powered platform for interview success." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+      {/* Simple Header */}
+      <header className="w-full py-4 bg-gray-100 dark:bg-gray-800">
+        <div className="flex justify-between max-w-7xl mx-auto px-6">
+        <div></div>
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Innova - AI Interview Preparation
+          </h1>
+          <span>
+            <ThemeToggleButton/>
+          </span>
+        </div>
+      </header>
+
       <main className="w-full flex flex-col items-center justify-center px-6 py-10">
-        <h1 className="text-5xl font-extrabold text-white mb-4 text-center">Ace Your Interviews with Our Comprehensive Prep Tool</h1>
-        <p className="text-lg text-white mb-6 text-center max-w-2xl">
-          Our AI-powered Interview Preparation App provides you with all the resources you need to succeed. From practice questions to personalized feedback, we’ve got you covered.
+        
+        <p className="text-lg text-gray-700 dark:text-gray-400 mb-8 text-center max-w-lg">
+          Elevate your interview preparation with cutting-edge AI. Tailored practice, expert insights, and real-time mock interviews—all in one place.
         </p>
+
+        {/* Get Started Button */}
         <Button 
           onClick={handleGetStarted} 
-          className="mt-4 px-8 py-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 shadow-lg"
+          className="px-6 py-3 border border-black rounded hover:bg-green-600 dark:hover:bg-green-700"
         >
           Get Started
         </Button>
-        <section className="mt-12 w-full max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-6">Why Choose Our App?</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white hover:scale-105 text-gray-800 p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold mb-2">Personalized Practice</h3>
-              <p className="text-lg">
-                Tailor your practice sessions to focus on your weaknesses. Our app adapts to your progress and provides questions that challenge you.
+
+        {/* Features Section */}
+        <section className="mt-12 w-full max-w-3xl text-center">
+          <h2 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">Features</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="border p-4 rounded hover:shadow-md bg-gray-50 dark:bg-gray-700 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Tailored Practice</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Focus on areas where you need improvement with AI-driven insights.
               </p>
             </div>
-            <div className="bg-white hover:scale-105 text-gray-800 p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold mb-2">Expert Feedback</h3>
-              <p className="text-lg">
-                Receive detailed feedback on your answers from industry experts. Understand where you went wrong and how to improve.
+            <div className="border p-4 rounded hover:shadow-md bg-gray-50 dark:bg-gray-700 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Mock Interviews</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Simulate real interviews to gain confidence and refine your skills.
               </p>
             </div>
-            <div className="bg-white hover:scale-105 text-gray-800 p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold mb-2">Comprehensive Resources</h3>
-              <p className="text-lg">
-                Access a wide range of study materials, including interview tips, common questions, and model answers.
+            <div className="border p-4 rounded hover:shadow-md bg-gray-50 dark:bg-gray-700 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Expert Feedback</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Get actionable advice from industry professionals.
               </p>
             </div>
-            <div className="bg-white hover:scale-105 text-gray-800 p-6 rounded-lg shadow-md">
-              <h3 className="text-2xl font-bold mb-2">Mock Interviews</h3>
-              <p className="text-lg">
-                Practice in real-time with our mock interview feature. Simulate an actual interview experience and get immediate feedback.
+            <div className="border p-4 rounded hover:shadow-md bg-gray-50 dark:bg-gray-700 hover:scale-105">
+              <h3 className="text-xl font-semibold mb-2 text-gray-800 dark:text-white">Comprehensive Resources</h3>
+              <p className="text-gray-600 dark:text-gray-300">
+                Access curated guides, tips, and common interview questions.
               </p>
             </div>
           </div>
-        </section>
-        <section className="mt-12 w-full max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-6">Testimonials</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-md">
-              <p className="text-lg italic">
-                This app transformed my interview preparation. The personalized practice and expert feedback were invaluable.
-              </p>
-              <p className="mt-4 font-bold">- Jane Doe</p>
-            </div>
-            <div className="bg-white text-gray-800 p-6 rounded-lg shadow-md">
-              <p className="text-lg italic">
-                I landed my dream job thanks to this app. The mock interviews helped me build confidence and perform well.
-              </p>
-              <p className="mt-4 font-bold">- John Smith</p>
-            </div>
-          </div>
-        </section>
-        <section className="mt-12 w-full max-w-4xl text-center">
-          <h2 className="text-4xl font-bold mb-6">Get Started Now</h2>
-          <p className="text-lg mb-6">
-            Sign up today and take the first step towards acing your next interview. Our app is here to help you succeed.
-          </p>
-          <Button 
-            onClick={handleGetStarted} 
-            className="mt-4 px-8 py-4 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 shadow-lg"
-          >
-            Sign Up
-          </Button>
         </section>
       </main>
     </div>
