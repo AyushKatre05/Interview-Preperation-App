@@ -25,23 +25,21 @@ const RecordAnsSection = ({
     results,
     startSpeechToText,
     stopSpeechToText,
-    setResults
+    setResults,
   } = useSpeechToText({
     continuous: true,
     useLegacyResults: false,
   });
 
   useEffect(() => {
-    results.map((result) => (
-      setUserAnswer((prev) => prev + result?.transcript)
-    ));
+    results.map((result) => setUserAnswer((prev) => prev + result?.transcript));
   }, [results]);
 
   useEffect(() => {
     if (!isRecording && userAnswer.length > 10) {
       UpdateUserAnswer();
     }
-  });
+  }, [userAnswer]);
 
   const UpdateUserAnswer = async () => {
     console.log(userAnswer);
@@ -60,7 +58,7 @@ const RecordAnsSection = ({
       .text()
       .replace("```json", "")
       .replace("```", "");
-      console.log(MockJsonResp)
+    console.log(MockJsonResp);
     const JsonFeedbackResponse = JSON.parse(MockJsonResp);
     const resp = await db.insert(UserAnswer).values({
       mockIdRef: interviewData?.mockId,
@@ -81,9 +79,15 @@ const RecordAnsSection = ({
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="flex flex-col justify-center items-center bg-green-200 rounded-lg p-5 my-10">
-        <Image src={"/cam.png"} alt="logo" width={200} height={200} className="absolute" />
+    <div className="flex flex-col items-center justify-center bg-white dark:bg-gray-800 p-5">
+      <div className="flex flex-col justify-center items-center bg-green-200 dark:bg-green-600 rounded-lg p-5 my-10">
+        <Image
+          src={"/cam.png"}
+          alt="logo"
+          width={200}
+          height={200}
+          className="absolute"
+        />
         <Webcam
           mirrored={true}
           style={{
@@ -96,17 +100,18 @@ const RecordAnsSection = ({
       <Button
         disabled={loading}
         variant="outline"
-        className="my-10"
+        className="my-10 border-gray-700 text-black dark:border-gray-300 dark:text-white"
         onClick={isRecording ? stopSpeechToText : startSpeechToText}
       >
         {isRecording ? (
-          <h2 className="text-red-500 animate-pulse items-center flex gap-2">
+          <h2 className="text-red-500 animate-pulse flex gap-2 items-center">
             <StopCircle />
             Stop Recording
           </h2>
         ) : (
-          <h2 className="text-primary flex gap-2 items-center">
-            <Mic/>Record Answer
+          <h2 className="text-primary dark:text-white flex gap-2 items-center">
+            <Mic />
+            Record Answer
           </h2>
         )}
       </Button>
